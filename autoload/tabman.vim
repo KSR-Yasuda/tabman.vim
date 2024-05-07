@@ -107,7 +107,7 @@ fu! s:Close()
 		if winnr == winnr()
 			let currwin = s:side == 'left' ? winnr('#') - 1 : winnr('#')
 		el
-			let currwin = s:side == 'left' ? winnr() - 1 : winnr()
+			let currwin = winnr() > winnr ? winnr() - 1 : winnr()
 			exe winnr.'winc w'
 		en
 		try | clo! | cat | cal s:msg("Can't close last window.") | endt
